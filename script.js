@@ -25,6 +25,12 @@ function updateAppInventorState(state) {
     window.AppInventor.setWebViewString(state);
   }
 }
+  fetch("https://script.google.com/macros/s/AKfycbwRTuXI4PMjGI9lIqwK4Pih00i0kHsLw2pudIFLs13ESrXbfFGjIpFWP3qn8qCkiLbI8A/exec")
+    .then(response => response.text())
+    .then(count => {
+      document.getElementById("visit-count").textContent = count;
+    })
+    .catch(error => console.error("Error fetching visit count:", error));
 
 // Function to send a message to MIT App Inventor about Media Session status
 function updateAppInventorWithMediaSessionStatus(status) {
